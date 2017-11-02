@@ -20,5 +20,3 @@ interface MoviesService {
                 @Query("api_key") key: String,
                 @Query("language") language: String = Locale.getDefault().toLanguageTag()): Observable<Movie>
 }
-
-//https://api.themoviedb.org/3/discover/?api_key=f63545457c512e0e1e328b907d1a3c8e&language=en-US&sort_by=primary_release_date.desc&page=1&primary_release_date.lte=2017-11-01
