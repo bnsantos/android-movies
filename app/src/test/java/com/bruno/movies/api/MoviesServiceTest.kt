@@ -18,7 +18,6 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
 import java.nio.charset.Charset
-import java.util.*
 
 @RunWith(JUnit4::class)
 class MoviesServiceTest {

@@ -20,6 +20,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
 }
 
 def support_version = "26.1.0"
@@ -27,8 +30,10 @@ def dagger_version = "2.11"
 def retrofit_version = "2.3.0"
 def rx_android_version = "2.0.1"
 def rx_java_version = "2.1.4"
+def room_version = "1.0.0-rc1"
 
 def mock_web_server_version = "3.8.0"
+def mockito_version = "2.7.19"
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -52,7 +57,12 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
+    implementation "android.arch.persistence.room:runtime:$room_version"
+    implementation "android.arch.persistence.room:rxjava2:$room_version"
+    annotationProcessor "android.arch.persistence.room:compiler:$room_version"
+
     testImplementation 'junit:junit:4.12'
+    testImplementation "org.mockito:mockito-core:$mockito_version"
     testImplementation "com.squareup.okhttp3:mockwebserver:$mock_web_server_version"
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
